@@ -44,13 +44,20 @@ return {
         previewer = false,
         prompt_title = false
       },
+      live_grep = {
+        theme = "ivy",
+        -- previewer = true,
+        prompt_title = false,
+        -- height = 0.8,
+      },
     },
   },
   keys = {
-    { "<leader>F", "<cmd>Telescope find_files<cr>",  desc = "Find files from current directory" },
+    { "<leader>f", "<cmd>Telescope find_files<cr>",  desc = "Find files from current directory" },
     { "<leader>?", "<cmd>Telescope keymaps<cr>",  desc = "Find files from current directory" },
     { "<leader>b", "<cmd>Telescope buffers<cr>",  desc = "Find existing buffers" },
-    { "<leader>f", "<cmd>Telescope git_files<cr>",  desc = "Find files tracked by git" },
+    { "<leader>F", "<cmd>Telescope git_files<cr>",  desc = "Find files tracked by git" },
+    { "<leader>/", "<cmd>Telescope live_grep<cr>",  desc = "Global grep search" },
   },
   config = function(_, opts)
     require("telescope").setup(opts)
