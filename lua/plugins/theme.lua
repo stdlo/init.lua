@@ -22,6 +22,10 @@ return {
                 TelescopeResultsNormal = { fg = "subtle", bg = "none" },
                 TelescopeSelection = { fg = "text", bg = "base" },
                 TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+
+                -- Syntax preferences
+                ["@constructor"] = { fg = "subtle" },
+                ["@field"] = { fg = "text" },
             },
         })
 
