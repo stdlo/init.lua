@@ -24,7 +24,7 @@ return {
       sorting_strategy = "ascending",
       layout_config = {
         prompt_position = "top",
-        height = 0.5,
+        height = 0.6,
         width = 0.7,
       },
     },
@@ -46,9 +46,14 @@ return {
       },
       live_grep = {
         theme = "ivy",
-        -- previewer = true,
+        previewer = true,
         prompt_title = false,
-        -- height = 0.8,
+        results_title = false,
+        preview_title = false,
+        prompt_prefix = "/",
+        borderchars = {
+          preview = { "", "", "", "│", "", "", "", "" }
+        },
       },
     },
   },
