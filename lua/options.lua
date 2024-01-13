@@ -34,9 +34,9 @@ vim.opt.expandtab = true
 -- statusline
 local current_mode = {
     n = 'NOR',
-    v = 'VIS',
+    v = '%#Macro#VIS%#Subtle#',
     V = 'VIL',
-    i = 'INS',
+    i = '%#Error#INS%#Subtle#',
     c = 'CMD',
     r = 'RE ',
 }
