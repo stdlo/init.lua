@@ -7,6 +7,9 @@ vim.opt.mouse = ""
 -- always block cursor
 vim.opt.guicursor = ""
 
+vim.opt.signcolumn = "yes"
+-- vim.opt.statuscolumn = "%l"
+
 vim.opt.number = true
 -- vim.opt.relativenumber = true
 
