@@ -7,11 +7,22 @@ vim.opt.mouse = ""
 -- always block cursor
 vim.opt.guicursor = ""
 
+-- turn off all diagnostics
+-- vim.diagnostic.config({signs=false,underline=true,virtual_text =false})
+
+-- disable continued comment on o and <Enter>
+-- autocmd because setting it directly gets overwritten by ftplugin
+vim.cmd([[autocmd BufEnter * set formatoptions-=ro]])
+
+-- enable if gitsigns is going to use gutter space
 vim.opt.signcolumn = "yes"
+-- move linenumber to statuscolumn
 -- vim.opt.statuscolumn = "%l"
 
 vim.opt.number = true
 -- vim.opt.relativenumber = true
+
+vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 50
 vim.opt.termguicolors = true
@@ -26,7 +37,6 @@ vim.opt.completeopt = "menuone,noselect"
 
 vim.opt.smartindent = true
 vim.opt.ignorecase = true
-vim.opt.smartcase = true
 
 -- spaces over tabs
 vim.opt.tabstop = 4
