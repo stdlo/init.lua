@@ -1,3 +1,8 @@
+--[[ 
+TODO: enable toggling the autocomplete popups, <C-x> starts the popup or something
+https://github.com/hrsh7th/nvim-cmp/issues/429
+https://github.com/hrsh7th/nvim-cmp/issues/261
+--]]
 return {
   {
     -- Autocompletion
@@ -12,7 +17,7 @@ return {
       "hrsh7th/cmp-path",
 
       -- Adds a number of user-friendly snippets
-      "rafamadriz/friendly-snippets",
+      -- "rafamadriz/friendly-snippets",
     },
     config = function()
       -- See `:help cmp`
@@ -28,6 +33,7 @@ return {
           end,
         },
         completion = {
+          -- autocomplete = false,
           completeopt = 'menu,menuone,noinsert',
         },
         mapping = cmp.mapping.preset.insert {
