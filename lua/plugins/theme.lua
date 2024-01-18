@@ -31,6 +31,10 @@ return {
 
         vim.cmd.colorscheme "rose-pine-moon"
 
+        -- highlight current line number
+        vim.cmd [[highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE]]
+        vim.opt.cursorline = true
+
         -- fix for TelescopeNormal background not updating from highlight_groups above
         vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="none"})
     end
