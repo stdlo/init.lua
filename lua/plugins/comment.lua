@@ -1,12 +1,20 @@
--- TODO: make this work better
 return {
     {
-        "terrortylor/nvim-comment",
-        config = function()
-            require("nvim_comment").setup({
-                create_mappings = false,
-            })
-            vim.keymap.set({ "n", "v" }, "<leader>c", ":CommentToggle<cr>", { noremap = true, silent = true })
-        end,
+        "numToStr/Comment.nvim",
+        opts = {
+            -- toggler = {
+            --     -- line = '<leader>c',
+            --     line = 'gcc',
+            -- },
+            -- opleader = {
+            --     line = 'gc',
+            --     block = 'gb',
+            -- },
+            -- mappings = {
+            --     basic = true,
+            --     extra = true,
+            -- },
+        },
+        lazy = false,
     },
 }
