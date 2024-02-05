@@ -3,7 +3,7 @@ TODO: enable toggling the autocomplete popups, <C-x> starts the popup or somethi
 https://github.com/hrsh7th/nvim-cmp/issues/429
 https://github.com/hrsh7th/nvim-cmp/issues/261
 --]]
-return {
+ignore = {
   {
     -- Autocompletion
     "hrsh7th/nvim-cmp",
@@ -74,4 +74,4 @@ return {
     end
   },
 }
-
+return {}
