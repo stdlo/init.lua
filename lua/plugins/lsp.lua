@@ -21,6 +21,35 @@ return {
       vim.lsp.protocol.make_client_capabilities(),
       cmp_lsp.default_capabilities())
 
+    --  This function gets run when an LSP connects to a particular buffer.
+    local on_attach = function(_, bufnr)
+      local nmap = function(keys, func, desc)
+        if desc then
+          desc = 'LSP: ' .. desc
+        end
+
+        vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+      end
+
+      -- nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+      nmap('<leader>a', vim.lsp.buf.code_action, 'Code [a]ction')
+
+      nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+      nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+
+      nmap('K', vim.lsp.buf.hover, 'Hover Documentation') -- See `:help K` for why this keymap
+      nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+
+      nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+      -- Create a command `:Format` local to the LSP buffer
+      vim.api.nvim_buf_create_user_command(bufnr, "Format",
+        function(_) vim.lsp.buf.format() end,
+        { desc = 'Format current buffer with LSP' })
+      vim.cmd.abbreviate("format", "Format")
+      vim.cmd.abbreviate("fmt", "Format")
+    end
+
     require("fidget").setup({})
     require("mason").setup()
     require("mason-lspconfig").setup({
@@ -32,7 +61,8 @@ return {
       handlers = {
         function(server_name)
           require("lspconfig")[server_name].setup {
-            capabilities = capabilities
+            capabilities = capabilities,
+            on_attach = on_attach,
           }
         end,
         -- supress noisy lsp warnings
@@ -84,44 +114,12 @@ return {
         prefix = "",
       },
     })
-    --
-    -- --  This function gets run when an LSP connects to a particular buffer.
-    -- local on_attach = function(_, bufnr)
-    --   local nmap = function(keys, func, desc)
-    --     if desc then
-    --       desc = 'LSP: ' .. desc
-    --     end
-    --
-    --     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-    --   end
-    --
-    --   -- nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-    --   nmap('<leader>a', vim.lsp.buf.code_action, 'Code [a]ction')
-    --
-    --   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-    --   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-    --   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-    --   -- nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-    --   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-    --   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-    --
-    --   nmap('K', vim.lsp.buf.hover, 'Hover Documentation') -- See `:help K` for why this keymap
-    --   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-    --
-    --   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-    --
-    --   -- Create a command `:Format` local to the LSP buffer
-    --   vim.api.nvim_buf_create_user_command(bufnr, "Format",
-    --     function(_) vim.lsp.buf.format() end,
-    --     { desc = 'Format current buffer with LSP' })
-    --   vim.cmd.abbreviate("format", "Format")
-    --   vim.cmd.abbreviate("fmt", "Format")
-    -- end
-    --
-    -- -- Turn off syntax highlighting from LSP
-    -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-    --   vim.api.nvim_set_hl(0, group, {})
-    -- end
+
+    -- this is important, i dont like the lsp coloring, treesitter does it well enough
+    -- Turn off syntax highlighting from LSP
+    for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+      vim.api.nvim_set_hl(0, group, {})
+    end
     --
     -- -- mason-lspconfig requires that these setup functions are called in this order
     -- -- before setting up the servers.
