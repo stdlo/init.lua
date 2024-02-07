@@ -34,13 +34,14 @@ return {
       -- nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
       nmap('<leader>a', vim.lsp.buf.code_action, 'Code [a]ction')
 
-      nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-      nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+      -- nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+      nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+      nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+      -- nmap('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
 
       nmap('K', vim.lsp.buf.hover, 'Hover Documentation') -- See `:help K` for why this keymap
       nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
-      nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
       -- Create a command `:Format` local to the LSP buffer
       vim.api.nvim_buf_create_user_command(bufnr, "Format",
