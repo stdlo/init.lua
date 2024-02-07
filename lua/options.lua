@@ -49,5 +49,5 @@ vim.opt.showmode = false
 vim.opt.shortmess:append("cFmWI")
 
 -- windows config if you must
-if vim.fn.has("win32") then require("win32") end
+require("win32")
 
