@@ -1,7 +1,7 @@
 return {
     "machakann/vim-sandwich",
-    "ThePrimeagen/vim-be-good",
+    -- "ThePrimeagen/vim-be-good",
     "tpope/vim-sleuth",  -- Detect tabstop and shiftwidth automatically
     -- "tpope/vim-fugitive",
-    "ii14/neorepl.nvim", -- Lua repl
+    -- "ii14/neorepl.nvim", -- Lua repl
 }

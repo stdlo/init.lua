@@ -7,6 +7,12 @@ local port = os.getenv('GDScript_Port') or '6005'
 local cmd = {'nc', '127.0.0.1', port}
 local pipe = [[\\.\pipe\godot.pipe]]
 
+-- tabs over spaces, gdscript convention
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = false
+
 vim.lsp.start({
   name = 'Godot',
   cmd = cmd,

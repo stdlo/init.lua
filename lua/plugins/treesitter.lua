@@ -3,6 +3,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
+            "yioneko/nvim-yati"
         },
         build = ":TSUpdate",
         config = function()
@@ -22,7 +23,11 @@ return {
                     -- You can specify additional Treesitter modules here: -- For example: -- playground = {--enable = true,-- },
                     modules = {},
                     highlight = { enable = true },
-                    indent = { enable = true },
+                    indent = { enable = false }, -- disable builtin indent module
+                    yati = { -- yet another treesitter indent
+                        enable = true,
+                        default_fallback = "auto"
+                    },
                     incremental_selection = {
                         enable = true,
                         keymaps = {

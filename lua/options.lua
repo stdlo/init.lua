@@ -35,7 +35,6 @@ vim.opt.wrap = false
 
 vim.opt.completeopt = "menuone,noselect"
 
-vim.opt.smartindent = true
 vim.opt.ignorecase = true
 
 -- spaces over tabs

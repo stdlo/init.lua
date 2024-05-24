@@ -12,9 +12,3 @@ vim.keymap.set("c", "<c-a>", "<home>", { noremap = true, silent = true })
 vim.keymap.set("c", "<c-e>", "<end>", { noremap = true, silent = true })
 vim.keymap.set("c", "<c-b>", "<left>", { noremap = true, silent = true })
 vim.keymap.set("c", "<c-f>", "<right>", { noremap = true, silent = true })
-
--- Emulate Helix multiple cursor selections
-vim.keymap.set("v", "s", function()
-    return string.format(":s/%s/%s/g", vim.fn.input("Find: "), vim.fn.input("Replace: "))
-end, { expr = true })
-
