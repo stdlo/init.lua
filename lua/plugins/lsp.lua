@@ -69,6 +69,15 @@ return {
         -- supress noisy lsp warnings
         ["lua_ls"] = function()
           local lspconfig = require("lspconfig")
+          -- lspconfig.efm.setup {
+          --   settings = {
+          --     languages = {
+          --       gdscript = {
+          --         {formatCommand = "gdformat -l 80 -", formatStdin = true}
+          --       }
+          --     }
+          --   }
+          -- }
           lspconfig.lua_ls.setup {
             capabilities = capabilities,
             settings = {

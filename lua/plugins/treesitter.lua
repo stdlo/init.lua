@@ -7,6 +7,9 @@ return {
         },
         build = ":TSUpdate",
         config = function()
+            -- local get_builtin = require("nvim-yati.config").get_builtin
+            -- local gdscript_overrides = get_builtin("python")
+
             -- See `:help nvim-treesitter`
             -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
             vim.defer_fn(function()
@@ -23,11 +26,20 @@ return {
                     -- You can specify additional Treesitter modules here: -- For example: -- playground = {--enable = true,-- },
                     modules = {},
                     highlight = { enable = true },
-                    indent = { enable = false }, -- disable builtin indent module
-                    yati = { -- yet another treesitter indent
+                    indent = { 
                         enable = true,
-                        default_fallback = "auto"
-                    },
+                        disable = {
+                            "gdscript",
+                        },
+                    }, -- disable builtin indent module
+                    -- yati = { -- yet another treesitter indent
+                    --     enable = true,
+                    --     default_fallback = "cindent",
+                    --     supress_conflict_warning = true
+                    --     -- overrides = {
+                    --     --     gdscript = gdscript_overrides
+                    --     -- }
+                    -- },
                     incremental_selection = {
                         enable = true,
                         keymaps = {
