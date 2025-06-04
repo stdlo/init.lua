@@ -2,10 +2,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.mouse = ""
+vim.o.mouse = ""
 
 -- always block cursor
-vim.opt.guicursor = ""
+vim.o.guicursor = ""
 
 -- turn off all diagnostics
 -- vim.diagnostic.config({signs=false,underline=true,virtual_text =false})
@@ -15,36 +15,36 @@ vim.opt.guicursor = ""
 vim.cmd([[autocmd BufEnter * set formatoptions-=ro]])
 
 -- enable if gitsigns is going to use gutter space
-vim.opt.signcolumn = "yes"
+vim.o.signcolumn = "yes"
 -- move linenumber to statuscolumn
 -- vim.opt.statuscolumn = "%l"
 
-vim.opt.number = true
--- vim.opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
-vim.opt.scrolloff = 8
+vim.o.scrolloff = 8
 
-vim.opt.updatetime = 50
-vim.opt.termguicolors = true
+vim.o.updatetime = 50
+vim.o.termguicolors = true
 
-vim.opt.hlsearch = false
-vim.opt.swapfile = false
-vim.opt.undofile = true
+vim.o.hlsearch = false
+vim.o.swapfile = false
+vim.o.undofile = true
 
-vim.opt.wrap = false
+vim.o.wrap = false
 
-vim.opt.completeopt = "menuone,noselect"
+vim.opt.completeopt = { "menuone", "noselect" }
 
-vim.opt.ignorecase = true
+vim.o.ignorecase = true
 
 -- spaces over tabs
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
 
 -- hide as much noise from the commandline as possible
-vim.opt.showmode = false
+vim.o.showmode = false
 vim.opt.shortmess:append("cFmWI")
 
 -- windows config if you must

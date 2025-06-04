@@ -5,7 +5,7 @@ return {
     config = function()
         require('rose-pine').setup({
             styles = {
-                italic = false,
+                -- italic = false,
             },
             highlight_groups = {
                 -- Hop Theme
@@ -23,6 +23,9 @@ return {
                 TelescopeSelection = { fg = "text", bg = "base" },
                 TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
 
+                -- -- Statusline
+                -- StatusLine = { fg = "love", bg = "love", blend=10 },
+                -- StatusLineNc = { fg = "subtle", bg = "surface" },
                 -- Syntax preferences
                 ["@constructor"] = { fg = "subtle" },
                 ["@field"] = { fg = "text" },
