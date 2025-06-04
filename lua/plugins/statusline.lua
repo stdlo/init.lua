@@ -14,7 +14,8 @@ local current_mode = {
 
 local make_active_statusline = function()
     local mode = current_mode[vim.fn.mode()]
-    return string.format(" %s %%f %%m %%= %%l:%%c ♥ ", mode)
+    -- return string.format(" %s %%f %%m %%= %%l:%%c ♥ ", mode)
+    return string.format(" %s %%f %%m %%= %%l:%%c ", mode)
 end
 local make_inactive_statusline = function() return " %f %m " end
 
