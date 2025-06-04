@@ -1,3 +1,6 @@
+-- remap control c to esc
+vim.keymap.set("i", "<c-c>", "<esc>", { noremap = true, silent=true })
+
 -- disable space movement in normal and visual mode
 vim.keymap.set({ "n", "v" }, "<space>", "<nop>", { noremap = true, silent=true })
 

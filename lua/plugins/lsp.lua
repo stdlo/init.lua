@@ -23,6 +23,11 @@ return {
         map("gD", vim.lsp.buf.declaration, "[g]oto [d]eclaration")
         map("gi", vim.lsp.buf.implementation, "[g]oto [i]mplementation")
         map("gro", vim.diagnostic.open_float, "[g]oto? [r]eference? [o]pen_float")
+        local bordered_hover = function(_opts)
+          _opts = _opts or {}
+          return vim.lsp.buf.hover(vim.tbl_deep_extend("force", _opts, { border = "single" }))
+        end
+        map("K", bordered_hover, "vim.lsp.buf.hover")
 
         -- Create a command `:Format` local to the LSP buffer
         vim.api.nvim_buf_create_user_command(event.buf, "Format",
@@ -45,9 +50,9 @@ return {
         format = function(diagnostic)
           local diagnostic_message = {
             [vim.diagnostic.severity.ERROR] = diagnostic.message,
-            [vim.diagnostic.severity.WARN] = diagnostic.message,
-            [vim.diagnostic.severity.INFO] = diagnostic.message,
-            [vim.diagnostic.severity.HINT] = diagnostic.message,
+            -- [vim.diagnostic.severity.WARN] = diagnostic.message,
+            -- [vim.diagnostic.severity.INFO] = diagnostic.message,
+            -- [vim.diagnostic.severity.HINT] = diagnostic.message,
           }
           return diagnostic_message[diagnostic.severity]
         end,

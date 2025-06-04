@@ -16,6 +16,11 @@ return {
                 HopCursor = { bg = "base" }, -- Highlight used for the fake cursor visible when running a Hop command Lua functions.
                 HopPreview = { bg = "base" }, -- Highlight used for to preview the hint for HopPattern.
 
+                -- Completion
+                -- BlinkCmpMenu = { bg = "overlay" },
+                -- BlinkCmpMenuBorder = { fg = "iris" },
+                -- BlinkCmpMenuSelection = { bg = "muted" , fg = "text" },
+
                 -- Telescope Theme
                 -- https://github.com/rose-pine/neovim/wiki/Recipes#transparent-telescopenvim
                 TelescopeBorder = { fg = "highlight_high", bg = "none" },
