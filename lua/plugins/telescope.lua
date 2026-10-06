@@ -59,13 +59,14 @@ return {
   },
   keys = {
     { "<leader>f", "<cmd>Telescope find_files<cr>",  desc = "Find files from current directory" },
-    { "<leader>?", "<cmd>Telescope keymaps<cr>",  desc = "Find files from current directory" },
+    { "<leader>?", "<cmd>Telescope keymaps<cr>",  desc = "Find keymaps" },
     { "<leader>b", "<cmd>Telescope buffers<cr>",  desc = "Find existing buffers" },
     { "<leader>F", "<cmd>Telescope git_files<cr>",  desc = "Find files tracked by git" },
     { "<leader>/", "<cmd>Telescope live_grep<cr>",  desc = "Global grep search" },
   },
   config = function(_, opts)
     require("telescope").setup(opts)
-    require("telescope").load_extension("fzf")
+    -- fzf-native is skipped without make and fails to build without a C compiler; telescope works without it
+    pcall(require("telescope").load_extension, "fzf")
   end,
 }

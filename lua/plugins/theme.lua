@@ -33,7 +33,7 @@ return {
                 -- StatusLineNc = { fg = "subtle", bg = "surface" },
                 -- Syntax preferences
                 ["@constructor"] = { fg = "subtle" },
-                ["@field"] = { fg = "text" },
+                ["@variable.member"] = { fg = "text" }, -- was @field before treesitter renamed it
             },
         })
 
