@@ -8,12 +8,14 @@ local current_mode = {
     n = "NOR",
     v = "%#mode_vis#VIS%#StatusLine#",
     V = "%#mode_vis#VIL%#StatusLine#",
+    ["\22"] = "%#mode_vis#VIB%#StatusLine#", -- visual block (ctrl-v)
     i = "%#mode_ins#INS%#StatusLine#",
     c = "%#mode_cmd#CMD%#StatusLine#",
 }
 
 local make_active_statusline = function()
-    local mode = current_mode[vim.fn.mode()]
+    -- modes without an entry (replace, terminal, select) show their own letter
+    local mode = current_mode[vim.fn.mode()] or vim.fn.mode():upper()
     -- return string.format(" %s %%f %%m %%= %%l:%%c ♥ ", mode)
     return string.format(" %s %%f %%m %%= %%l:%%c ", mode)
 end
@@ -38,5 +40,3 @@ vim.api.nvim_create_autocmd({"WinEnter", "BufEnter"}, {
     -- autocmd WinLeave,BufLeave * setlocal statusline=%!statusline#inactive()
 
 vim.opt.statusline = make_active_statusline()
-
-return {} -- trick lazy into loading this file

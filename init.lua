@@ -9,3 +9,5 @@ vim.opt.rtp:prepend(lazypath)
 
 -- plugin config and keymaps are under lua/plugins/*.lua
 require("lazy").setup("plugins")
+
+require("statusline")
