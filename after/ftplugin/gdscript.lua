@@ -1,5 +1,5 @@
 -- Godot's LSP and the pipe Godot opens files through; the WSL setup is in the README
-local port = os.getenv('GDScript_Port') or '6005'
+local port = tonumber(os.getenv('GDScript_Port')) or 6005
 local pipe = '/tmp/godot.pipe'
 
 -- tabs over spaces, gdscript convention; opt_local so other buffers keep spaces
