@@ -20,8 +20,8 @@ return {
         end
         map("gd", vim.lsp.buf.definition, "[g]oto [d]efinition")
         map("gD", vim.lsp.buf.declaration, "[g]oto [d]eclaration")
-        map("gi", vim.lsp.buf.implementation, "[g]oto [i]mplementation")
-        map("gro", vim.diagnostic.open_float, "[g]oto? [r]eference? [o]pen_float")
+        -- go to implementation is Neovim's built-in gri
+        map("gro", vim.diagnostic.open_float, "Open diagnostic float")
         local bordered_hover = function(_opts)
           _opts = _opts or {}
           return vim.lsp.buf.hover(vim.tbl_deep_extend("force", _opts, { border = "single" }))
