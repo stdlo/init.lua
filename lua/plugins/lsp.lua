@@ -33,10 +33,15 @@ return {
         vim.api.nvim_buf_create_user_command(event.buf, "Format",
         function(_) vim.lsp.buf.format() end,
         { desc = 'Format current buffer with LSP' })
-        vim.cmd.abbreviate("format", "Format")
-        vim.cmd.abbreviate("fmt", "Format")
         end,
     })
+
+    -- :fmt and :format run :Format; command-line only, so typing fmt or format in a file is left alone
+    for _, word in ipairs({ "fmt", "format" }) do
+      vim.keymap.set("ca", word, function()
+        return (vim.fn.getcmdtype() == ":" and vim.fn.getcmdline() == word) and "Format" or word
+      end, { expr = true })
+    end
 
     -- Diagnostic Config
     -- See :help vim.diagnostic.Opts
