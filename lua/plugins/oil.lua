@@ -1,6 +1,5 @@
 return {
   'stevearc/oil.nvim',
-  opts = {},
   config = function()
     vim.opt.splitright = true
     require("oil").setup {
