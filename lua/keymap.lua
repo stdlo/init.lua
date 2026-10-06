@@ -22,36 +22,3 @@ vim.keymap.set("c", "<c-a>", "<home>", { noremap = true, silent = true })
 vim.keymap.set("c", "<c-e>", "<end>", { noremap = true, silent = true })
 vim.keymap.set("c", "<c-b>", "<left>", { noremap = true, silent = true })
 vim.keymap.set("c", "<c-f>", "<right>", { noremap = true, silent = true })
-
-------------------------
--- CURRENTLY DISABLED --
-------------------------
-
--- open Ex tree view
--- disabled because some plugin is disabling netrw
--- vim.keymap.set("n", "<leader>E", vim.cmd.Ex)
-
--- idk what this is anymore, i think i was tyring to emulate the pipe command in kakoune and helix
--- vim.keymap.set({ "v" }, "|", 'y: echo system(input("Pipe: "), @")[:-2]:w<cr>')
--- nnoremap gc :execute '!git commit -m "'.input('Enter message: ').'"'<cr>
--- vim.keymap.set({ "v" }, "|",  function()
---     vim.cmd('noau normal! "vy"')
---     local command = vim.fn.input("| ")
---     vim.cmd("w !" .. command .. " " .. vim.fn.getreg('v'))
---     -- print(">>" .. vim.fn.getreg('v') .. "<<")
---     -- local r = vim.region(0, vim.fn.getpos("'<"), vim.fn.getpos("'>"), vim.fn.visualmode(), true)
---     -- print(r)
---     --
---     -- local text = ''
---     -- local maxcol = vim.v.maxcol
---     -- for line, cols in vim.spairs(r) do
---     --
---     --     local endcol = cols[2] == maxcol and -1 or cols[2]
---     --     local chunk = vim.api.nvim_buf_get_text(0, line, cols[1], line, endcol, {})[1]
---     --     text = ('%s%s\n'):format(text, chunk)
---     -- end
---     -- -- vim.print(text, "foobar")
---     -- -- 'y: call system(input("Pipe: ") . @")[:-2]<cr>')
--- end)
-
-

@@ -7,18 +7,12 @@ vim.o.mouse = ""
 -- always block cursor
 vim.o.guicursor = ""
 
--- turn off all diagnostics
--- vim.diagnostic.config({signs=false,underline=true,virtual_text =false})
-
 -- disable continued comment on o and <Enter>
 -- autocmd because setting it directly gets overwritten by ftplugin
 vim.cmd([[autocmd BufEnter * set formatoptions-=ro]])
 
 -- enable if gitsigns is going to use gutter space
 vim.o.signcolumn = "yes"
--- move linenumber to statuscolumn
--- vim.opt.statuscolumn = "%l"
-
 vim.o.number = true
 vim.o.relativenumber = true
 
@@ -49,4 +43,3 @@ vim.opt.shortmess:append("cFmWI")
 
 -- windows config if you must
 require("win32")
-
