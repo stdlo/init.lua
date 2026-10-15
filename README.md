@@ -7,6 +7,7 @@ Needs:
 - [tree-sitter-cli](https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md) 0.26.1 or later
   and a C compiler, for nvim-treesitter to build parsers (`brew install tree-sitter-cli` on macOS; not the npm package)
 - make and a C compiler for telescope-fzf-native (optional: telescope works without it)
+- ripgrep, for obsidian.nvim's tag and note search (`:Obsidian tags`)
 
 Clone into `~/.config/nvim` (`~/AppData/Local/nvim` on Windows) and start nvim: lazy.nvim installs the plugins
 and mason installs the language servers. `lazy-lock.json` pins the plugin versions; `:Lazy update` moves them.
