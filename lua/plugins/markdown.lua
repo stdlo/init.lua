@@ -12,12 +12,15 @@ return {
       ui = { enable = false },
       -- the commands are `:Obsidian tags`, `:Obsidian backlinks`; the old `:ObsidianTags` forms warn at startup
       legacy_commands = false,
+      -- the workspace holds repos, not a vault: a save mustn't add an id/aliases/tags block to the top of a file
+      frontmatter = { enabled = false },
     },
   },
   {
     'MeanderingProgrammer/render-markdown.nvim',
     ft = 'markdown',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    opts = {},
+    -- no numbered icons on headings, in the text or the sign column; the #s show instead
+    opts = { heading = { icons = {}, sign = false } },
   },
 }
