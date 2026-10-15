@@ -10,6 +10,8 @@ return {
       },
       -- render-markdown draws the checkboxes and headings, and the two fight when both do
       ui = { enable = false },
+      -- the commands are `:Obsidian tags`, `:Obsidian backlinks`; the old `:ObsidianTags` forms warn at startup
+      legacy_commands = false,
     },
   },
   {
