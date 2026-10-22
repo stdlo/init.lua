@@ -1,6 +1,6 @@
 -- Highlight, indent and navigate code
 -- The main branch needs Neovim 0.12+ and tree-sitter-cli (see the README)
-local parsers = { 'bash', 'c', 'cpp', 'go', 'gdscript', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'rust' }
+local parsers = { 'bash', 'c', 'cpp', 'go', 'gdscript', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'rust', 'python' }
 
 return {
   'nvim-treesitter/nvim-treesitter',
