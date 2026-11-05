@@ -9,6 +9,8 @@ Needs:
 - make and a C compiler for telescope-fzf-native (optional: telescope works without it)
 - ripgrep, for obsidian.nvim's tag and note search (`:Obsidian tags`)
 
+With Nix, `nix develop` in this folder gives a shell with all of these, at the versions `flake.lock` pins.
+
 Clone into `~/.config/nvim` (`~/AppData/Local/nvim` on Windows) and start nvim: lazy.nvim installs the plugins
 and mason installs the language servers. `lazy-lock.json` pins the plugin versions; `:Lazy update` moves them.
 
