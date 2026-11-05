@@ -13,7 +13,6 @@ return {
           ["<s-tab>"] = function(...) return require("telescope.actions").move_selection_previous(...) end,
           ["<esc>"] = function(...) return require("telescope.actions").close(...) end,
 
-          -- TODO: fix error when initially toggling it doesnt have a buffer to highlight
           -- change theme when doing this? or maybe move the preview window
           ["<c-t>"] = function(...) return require("telescope.actions.layout").toggle_preview(...) end,
         },
