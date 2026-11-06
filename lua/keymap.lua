@@ -17,8 +17,8 @@ vim.keymap.set({ "n", "v" }, "<c-r>", "<nop>", { noremap = true, silent=true })
 vim.keymap.set("n", "U", "<c-r>", { silent = true, desc = "redo" })
 
 
--- ex mode emacs binds, TODO: fix cursor not updating on movement
-vim.keymap.set("c", "<c-a>", "<home>", { noremap = true, silent = true })
-vim.keymap.set("c", "<c-e>", "<end>", { noremap = true, silent = true })
-vim.keymap.set("c", "<c-b>", "<left>", { noremap = true, silent = true })
-vim.keymap.set("c", "<c-f>", "<right>", { noremap = true, silent = true })
+-- ex mode emacs binds, not silent as that stops the cmdline cursor redrawing
+vim.keymap.set("c", "<c-a>", "<home>", { noremap = true })
+vim.keymap.set("c", "<c-e>", "<end>", { noremap = true })
+vim.keymap.set("c", "<c-b>", "<left>", { noremap = true })
+vim.keymap.set("c", "<c-f>", "<right>", { noremap = true })
