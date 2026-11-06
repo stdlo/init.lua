@@ -10,9 +10,9 @@ Needs:
 - ripgrep, for obsidian.nvim's tag and note search (`:Obsidian tags`)
 - the language servers: clangd, lua-language-server, and typescript-language-server
 
-With Nix, `nix profile add .` in this folder installs all of these for every shell, and `nix develop` gives a shell
-with them, both at the versions `flake.lock` pins. On Windows, where Nix doesn't run, Mason installs the language
-servers.
+With Nix, `nix develop` in this folder gives a shell with all of these, at the versions `flake.lock` pins.
+`nix profile add .` installs the same tools for every shell, except the C compiler and make, which on macOS come
+from Apple's command line tools. On Windows, where Nix doesn't run, Mason installs the language servers.
 
 Clone into `~/.config/nvim` (`~/AppData/Local/nvim` on Windows) and start nvim: lazy.nvim installs the plugins
 and, on Windows, Mason installs the language servers. `lazy-lock.json` pins the plugin versions; `:Lazy update` moves them.
