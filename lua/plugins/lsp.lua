@@ -1,8 +1,11 @@
+-- Nix doesn't run on Windows, so Mason installs the language servers there; elsewhere they come from the flake
+local on_windows = vim.fn.has("win32") == 1
+
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    { "mason-org/mason.nvim", opts = {} },
-    "mason-org/mason-lspconfig.nvim",
+    { "mason-org/mason.nvim", opts = {}, cond = on_windows },
+    { "mason-org/mason-lspconfig.nvim", cond = on_windows },
 
     -- Useful status updates for LSP.
     { "j-hui/fidget.nvim", opts = {} },
@@ -63,11 +66,14 @@ return {
       },
     }
 
-    -- mason-lspconfig installs these and enables every installed server with vim.lsp.enable;
+    -- On Windows, mason-lspconfig installs these and enables them; elsewhere the flake puts them on the PATH.
     -- blink.cmp adds its completion capabilities to all of them itself.
     -- Per-server settings, when one needs them, go in after/lsp/<server>.lua
-    require("mason-lspconfig").setup {
-      ensure_installed = { "clangd", "ts_ls", "lua_ls" },
-    }
+    local servers = { "clangd", "ts_ls", "lua_ls" }
+    if on_windows then
+      require("mason-lspconfig").setup { ensure_installed = servers }
+    else
+      vim.lsp.enable(servers)
+    end
   end
 }
